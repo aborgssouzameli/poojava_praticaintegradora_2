@@ -1,9 +1,11 @@
 package services;
 
 import repositories.CircuitoAvancadoRepository;
-import repositories.CircuitoPequenoRepository;
+import repositories.FaturaRepository;
 
-public class CircuitoAvancadoService {
+import java.util.Map;
+
+public class CircuitoAvancadoService implements CircuitoInterface {
     CircuitoAvancadoRepository circuitoAvancadoRepository;
     public CircuitoAvancadoService() {
         circuitoAvancadoRepository = new CircuitoAvancadoRepository();
@@ -13,7 +15,7 @@ public class CircuitoAvancadoService {
         circuitoAvancadoRepository.adicionarPessoaCompetidora(pessoa);
     }
 
-    public void listarPessoasCadastradas() {
-
+    public Map<Integer, FaturaRepository> listarPessoasCadastradas() {
+        return circuitoAvancadoRepository.listarPessoasInscritas();
     }
 }

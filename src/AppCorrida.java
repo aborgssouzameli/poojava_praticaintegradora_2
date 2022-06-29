@@ -1,13 +1,10 @@
-import services.CircuitoAvancadoService;
-import services.PessoaService;
-import services.CircuitoMedioService;
-import services.CircuitoPequenoService;
+import services.*;
 
 import java.util.Scanner;
 public class AppCorrida {
-    private CircuitoPequenoService circuitoPequenoService = new CircuitoPequenoService();
-    private CircuitoMedioService circuitoMedioService = new CircuitoMedioService();
-    private CircuitoAvancadoService circuitoAvancadoService = new CircuitoAvancadoService();
+    private CircuitoInterface circuitoPequenoService = new CircuitoPequenoService();
+    private CircuitoInterface circuitoMedioService = new CircuitoMedioService();
+    private CircuitoInterface circuitoAvancadoService = new CircuitoAvancadoService();
 
     public static void main(String args[]){
         AppCorrida appCorrida = new AppCorrida();
