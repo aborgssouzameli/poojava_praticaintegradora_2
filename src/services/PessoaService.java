@@ -11,8 +11,13 @@ public class PessoaService {
     public PessoaRepository retornarInstanciaPessoa() {
         return pessoa;
     }
-
+    public int getRegistroGeral() { return pessoa.getRegistroGeral();}
+    public String getNome() { return pessoa.getNomePessoa();}
+    public String getSobrenome() { return pessoa.getSobrenomePessoa();}
     public int getIdade() {
         return pessoa.getIdadePessoa();
     }
+    public int getNumeroCelular() { return pessoa.getNumeroCelularPessoa();}
+    public int getNumeroEmergencial() { return pessoa.getNumeroEmergencia();}
+    public String getGrupoSanguineo() { return pessoa.getGrupoSanguineo(); }
 }

@@ -1,10 +1,7 @@
 package repositories;
 
 import services.PessoaService;
-
 import java.util.HashMap;
-import java.util.LinkedList;
-import java.util.List;
 
 public class CircuitoAvancadoRepository {
     final private int DISTANCIA_KM = 10;

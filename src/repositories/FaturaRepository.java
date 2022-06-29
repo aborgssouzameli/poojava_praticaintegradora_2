@@ -9,4 +9,12 @@ public class FaturaRepository {
         this.valorFatura = valorFatura;
         this.pessoa = pessoa;
     }
+
+    public double getValorFatura() {
+        return valorFatura;
+    }
+
+    public PessoaRepository getPessoa() {
+        return pessoa;
+    }
 }
