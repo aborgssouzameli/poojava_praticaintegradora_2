@@ -46,4 +46,7 @@ public class PessoaRepository {
     public String getGrupoSanguineo() {
         return grupoSanguineo;
     }
+
+    public static interface CircuitoRepositoryInterface {
+    }
 }
