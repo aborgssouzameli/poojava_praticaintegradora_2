@@ -54,10 +54,11 @@ public class AppCorrida {
                             break;
                         }
                         case 4: {
-                            HashMap<Integer, CircuitoInterface> circuitos = new HashMap<>();
-                            circuitos.put(1, circuitoPequenoService);
-                            circuitos.put(2, circuitoMedioService);
-                            circuitos.put(3, circuitoAvancadoService);
+                            HashMap<String, CircuitoInterface> circuitos = new HashMap<>();
+                            circuitos.put("Circuito Pequeno", circuitoPequenoService);
+                            circuitos.put("Circuito Médio", circuitoMedioService);
+                            circuitos.put("Circuito Avançado", circuitoAvancadoService);
+                            listarTodosInscritos(circuitos);
                             break;
                         }
                         case 5: {
@@ -108,8 +109,9 @@ public class AppCorrida {
         return pessoaCompetidora;
     }
 
-    private void listarInscritos(HashMap<Integer, CircuitoInterface> ciruitos) {
-        for (Map.Entry<Integer, CircuitoInterface> circuito: ciruitos.entrySet()) {
+    private void listarTodosInscritos(HashMap<String, CircuitoInterface> circuitos) {
+        for (Map.Entry<String, CircuitoInterface> circuito: circuitos.entrySet()) {
+            System.out.printf("\nCircuito: %s", circuito.getKey());
             listarIncritos(circuito.getValue());
         }
     }
