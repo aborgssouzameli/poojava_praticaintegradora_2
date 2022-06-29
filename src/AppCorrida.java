@@ -87,7 +87,7 @@ public class AppCorrida {
         try {
             Scanner entradaTeclado = new Scanner(System.in);
             System.out.println("\nInforme o nome:");
-            String nomePessoa = entradaTeclado˜.nextLine();
+            String nomePessoa = entradaTeclado.nextLine();
             System.out.println("\nInforme o sobrenome:");
             String sobrenomePessoa = entradaTeclado.nextLine();
             System.out.println("\nInforme a idade:");
