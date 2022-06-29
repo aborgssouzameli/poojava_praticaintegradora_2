@@ -15,6 +15,10 @@ public class CircuitoMedioRepository {
         listaPessoaCompetidora.put(++numeroCamiseta, fatura);
     }
 
+    public void excluirPessoaCompetidora(int codigoPessoaCompetidora) {
+        listaPessoaCompetidora.remove(codigoPessoaCompetidora);
+    }
+
     public HashMap<Integer, FaturaRepository> listarPessoasInscritas() {
         return listaPessoaCompetidora;
     }

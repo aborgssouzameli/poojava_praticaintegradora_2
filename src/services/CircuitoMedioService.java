@@ -19,4 +19,9 @@ public class CircuitoMedioService implements CircuitoInterface {
     public Map<Integer, FaturaRepository> listarPessoasCadastradas() {
         return circuitoMedioRepository.listarPessoasInscritas();
     }
+
+    @Override
+    public void excluirPessoaCompetidora(int codigoPessoaCompetidora) {
+        circuitoMedioRepository.excluirPessoaCompetidora(codigoPessoaCompetidora);
+    }
 }

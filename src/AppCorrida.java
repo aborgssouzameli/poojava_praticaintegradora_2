@@ -2,6 +2,8 @@ import repositories.FaturaRepository;
 import repositories.PessoaRepository;
 import services.*;
 
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Scanner;
@@ -29,12 +31,13 @@ public class AppCorrida {
                 System.out.printf("\n%d\t-\t%s - %s", 5, PREFIXO_CADASTRO, "Listar todos inscritos na categoria Circuito Pequeno" );
                 System.out.printf("\n%d\t-\t%s - %s", 6, PREFIXO_CADASTRO, "Listar todos inscritos na categoria Circuito Médio" );
                 System.out.printf("\n%d\t-\t%s - %s", 7, PREFIXO_CADASTRO, "Listar todos inscritos na categoria Circuito Avançada" );
+                System.out.printf("\n%d\t-\t%s", 8, "Excluir competidor(a)" );
                 System.out.printf("\n%d\t-\t%s", 9, "Sair" );
                 System.out.println("\nSelecione a opção: ");
                 String input = in.nextLine();
                 opcaoMenu = Integer.parseInt(input);
 
-                if ((opcaoMenu >= 1) && (opcaoMenu <= 7)) {
+                if ((opcaoMenu >= 1) && (opcaoMenu <= 8)) {
                     switch (opcaoMenu) {
                         case 1: {
                             circuitoPequenoService.adicionarPessoaCompetidora(this.registrarDadosPessoaCompetidora());
@@ -73,6 +76,11 @@ public class AppCorrida {
                             listarIncritos(circuitoAvancadoService);
                             break;
                         }
+
+                        case 8: {
+                            excluirCompetidor();
+                            break;
+                        }
                     }
                 }
             }
@@ -104,7 +112,7 @@ public class AppCorrida {
             pessoaCompetidora.adicionarPessoa(numeroRegistroGeral, nomePessoa, sobrenomePessoa, idadePessoa, numeroCelular, numeroEmergencia, grupoSanguineo);
         }
         catch (NumberFormatException e) {
-            System.out.println("Entrada com menu inválida");
+            System.out.println("Entrada com menu inválida.");
         }
         return pessoaCompetidora;
     }
@@ -134,6 +142,42 @@ public class AppCorrida {
                     pessoa.getNumeroEmergencia(),
                     valorFaturado
             );
+        }
+    }
+
+    private void excluirCompetidor() {
+        try {
+            Scanner entradaTeclado = new Scanner(System.in);
+            BufferedReader br = new BufferedReader(
+                    new InputStreamReader(System.in));
+            System.out.println("\nInforme o código do competidor:");
+            int codigoPessoaCompetidora = Integer.parseInt(entradaTeclado.nextLine());
+            System.out.printf("\n%d\t-\t%s", 1, "Excluir da categoria Circuito Pequeno" );
+            System.out.printf("\n%d\t-\t%s", 2, "Excluir da categoria Circuito Médio" );
+            System.out.printf("\n%d\t-\t%s", 3, "Excluir da categoria Circuito Avançada");
+            int selecionaCircuito = entradaTeclado.nextInt();
+            if ((selecionaCircuito >= 1) && (selecionaCircuito <=3 )) {
+                switch (selecionaCircuito) {
+                    case 1: {
+                        circuitoPequenoService.excluirPessoaCompetidora(codigoPessoaCompetidora);
+                        break;
+                    }
+                    case 2: {
+                        circuitoMedioService.excluirPessoaCompetidora(codigoPessoaCompetidora);
+                        break;
+                    }
+                    case 3: {
+                        circuitoAvancadoService.excluirPessoaCompetidora(codigoPessoaCompetidora);
+                        break;
+                    }
+                    default: {
+                        System.out.println("Opção inválida");
+                    }
+                }
+            }
+        }
+        catch (NumberFormatException e) {
+            System.out.println("Entrada com opção inválida");
         }
     }
 }

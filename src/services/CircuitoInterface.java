@@ -6,4 +6,5 @@ import java.util.Map;
 public interface CircuitoInterface {
     public void adicionarPessoaCompetidora(PessoaService pessoa);
     public Map<Integer, FaturaRepository> listarPessoasCadastradas();
+    public void excluirPessoaCompetidora(int codigoPessoaCompetidora);
 }

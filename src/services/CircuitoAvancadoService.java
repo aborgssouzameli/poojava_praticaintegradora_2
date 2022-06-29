@@ -18,4 +18,9 @@ public class CircuitoAvancadoService implements CircuitoInterface {
     public Map<Integer, FaturaRepository> listarPessoasCadastradas() {
         return circuitoAvancadoRepository.listarPessoasInscritas();
     }
+
+    @Override
+    public void excluirPessoaCompetidora(int codigoPessoaCompetidora) {
+        circuitoAvancadoRepository.excluirPessoaCompetidora(codigoPessoaCompetidora);
+    }
 }

@@ -16,6 +16,11 @@ public class CircuitoPequenoService implements CircuitoInterface {
     }
 
     @Override
+    public void excluirPessoaCompetidora(int codigoPessoaCompetidora) {
+        circuitoPequenoRepository.excluirPessoaCompetidora(codigoPessoaCompetidora);
+    }
+
+    @Override
     public Map<Integer, FaturaRepository> listarPessoasCadastradas() {
         return circuitoPequenoRepository.listarPessoasInscritas();
     }
